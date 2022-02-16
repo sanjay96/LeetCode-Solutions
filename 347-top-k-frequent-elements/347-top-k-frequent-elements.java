@@ -1,7 +1,6 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
-        List<Integer> result = new ArrayList<>();
         for (int x : nums) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
