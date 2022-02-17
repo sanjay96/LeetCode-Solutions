@@ -14,7 +14,28 @@
  * }
  */
 class Solution {
+    //Using Depth First Search
     public int sumOfLeftLeaves(TreeNode root) {
+        if (root == null) 
+            return 0;
+        
+        if (root.left == null && root.right == null) 
+            return 0;
+        
+        return sumOfLeftLeaves(root, true);
+    }
+    
+    private int sumOfLeftLeaves(TreeNode root, boolean isLeft) {
+        if (root == null) 
+            return 0;
+        
+        if (root.left == null && root.right == null && isLeft == true) 
+            return root.val;
+        
+        return sumOfLeftLeaves(root.left, true) + sumOfLeftLeaves(root.right, false);
+    }
+    // Using Level Order Traversal
+    /*public int sumOfLeftLeaves(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         if (root == null) 
             return 0;
@@ -33,5 +54,5 @@ class Solution {
                 queue.add(temp.right);
         }
         return sum;
-    }
+    }*/
 }
