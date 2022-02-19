@@ -19,7 +19,7 @@ class Solution {
         if (root == null) return true;
         int left = helper(root.left);
         int right = helper(root.right);
-        System.out.println(left + " " + right);
+        // System.out.println(left + " " + right);
         return Math.abs(left - right) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
     
