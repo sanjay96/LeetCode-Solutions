@@ -22,7 +22,7 @@ class Solution {
             // Add to the list
             else {
                 newInterval = interval;
-				result.add(newInterval);
+		result.add(newInterval);
             }
         }
         
