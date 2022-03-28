@@ -14,8 +14,6 @@ class Solution {
             if (nums[i] > 0)
                 result.add(i+1);
         }
-        
-        System.out.println(Arrays.toString(nums));
         return result;
     }
 }
