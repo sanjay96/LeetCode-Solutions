@@ -10,21 +10,11 @@ class Solution {
         int mid = -1;
         while (left <= right) {
             mid = (left + right) / 2;
-            if (nums[mid] == target || nums[right] == target || nums[left] == target)
+            if (nums[mid] == target)
                 return true;
             
-            // Right is sorted
-            if (nums[mid] < nums[right]) {
-                if (target > nums[right] || target < nums[mid]) {
-                    right = mid - 1;
-                }
-                else if (target > nums[mid]) {
-                    left = mid + 1;
-                }
-            }
-            
             // Left half is sorted
-            else if (nums[mid] > nums[left]){
+            if (nums[mid] > nums[left]){
                 if (target < nums[left] || target > nums[mid]) {
                     left = mid + 1;
                 }
@@ -32,11 +22,18 @@ class Solution {
                     right = mid - 1;
                 }
             }
-            else {
-                right--;
+            // Right half is sorted
+            else if (nums[mid] < nums[left]) {
+                if (target > nums[right] || target < nums[mid]) {
+                    right = mid - 1;
+                }
+                else if (target > nums[mid]) {
+                    left = mid + 1;
+                }
             }
-            
-            
+            else {
+                left++;
+            }
         }
         return false;
         
